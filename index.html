@@ -158,11 +158,29 @@
   .case-visual-ect {
     background: linear-gradient(135deg, #1a3a2c 0%, #0d2419 100%);
     display: flex; align-items: center; justify-content: center; padding: 40px;
+    position: relative; overflow: hidden;
   }
-  .case-visual-ect .laptop-wrap {
-    position: relative; width: 100%; max-width: 520px;
-    border-radius: 14px; overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  .case-visual-ect::before {
+    content: ""; position: absolute; inset: -40px;
+    background: radial-gradient(circle at 70% 70%, rgba(255, 165, 120, 0.18), transparent 60%);
+  }
+  .case-visual-ect .device-ect {
+    position: relative; width: 100%; max-width: 540px;
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .case-visual-ect .device-ect-bar {
+    height: 28px; background: #ebe6dc; display: flex; align-items: center;
+    padding: 0 12px; gap: 6px; border-bottom: 1px solid #d8d2c5;
+  }
+  .case-visual-ect .device-ect-bar .d { width: 10px; height: 10px; border-radius: 50%; }
+  .case-visual-ect .device-ect-bar .d.r { background: #ff5b5b; }
+  .case-visual-ect .device-ect-bar .d.y { background: #ffbe2e; }
+  .case-visual-ect .device-ect-bar .d.g { background: #2bca45; }
+  .case-visual-ect .device-ect-bar .url {
+    margin: 0 auto; font-size: 10px; color: #6b6f63; padding: 2px 14px;
+    background: rgba(255,255,255,0.7); border-radius: 999px;
   }
   .case-visual-ect img { width: 100%; display: block; }
   .case-visual-mb {
@@ -618,17 +636,9 @@
         <div class="device">
           <div class="titlebar">
             <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span style="margin-left: 10px; color: #c9c0ff; font-size: 10px;">mirabend.com</span>
           </div>
-          <div class="canvas">
-            <div class="prompt">create a low-poly forest with foggy morning light<span class="caret"></span></div>
-            <div class="toolbar">
-              <div class="tool active">✦</div>
-              <div class="tool">▣</div>
-              <div class="tool">◐</div>
-              <div class="tool">⬡</div>
-              <div class="tool">↗</div>
-            </div>
-          </div>
+          <img src="public/images/mirabend-landing.png" alt="Mirabend — AI Native Game Engine landing page" style="display: block; width: 100%; height: auto;" />
         </div>
       </div>
     </div>
@@ -699,8 +709,12 @@
     <!-- ECT case -->
     <div class="case">
       <div class="visual case-visual-ect">
-        <div class="laptop-wrap">
-          <img src="public/images/easyclimbtech-laptop.jpg" alt="EasyClimbTech brand mockup" />
+        <div class="device-ect">
+          <div class="device-ect-bar">
+            <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span class="url">easyclimbtech.com</span>
+          </div>
+          <img src="public/images/easyclimbtech-landing.png" alt="EasyClimbTech — Elevate your career with mentorship from FAANG engineers" />
         </div>
       </div>
       <div class="text">
