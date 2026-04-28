@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anastasia Karunos — UX/UI Designer & Product Manager</title>
+<meta name="description" content="Anastasia Karunos is a UX/UI designer and product manager based in Seattle. Selected work: EasyClimbTech and Mirabend." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1ec;
+    --bg-card: #ffffff;
+    --ink: #14110f;
+    --ink-soft: #6b655f;
+    --line: #e1ddd6;
+    --accent: #ff5b1f;
+    --accent-2: #2c5e3f;
+    --accent-3: #1a4480;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  .display { font-family: "Fraunces", Georgia, serif; font-weight: 500; letter-spacing: -0.02em; line-height: 0.95; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px) { .container { padding: 0 20px; } }
+
+  /* Nav */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  nav.top .brand { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+  nav.top .brand .dot { color: var(--accent); }
+  nav.top ul { display: flex; gap: 28px; list-style: none; padding: 0; margin: 0; font-size: 14px; }
+  nav.top ul a { text-decoration: none; color: var(--ink-soft); transition: color .2s; }
+  nav.top ul a:hover { color: var(--ink); }
+  @media (max-width: 640px) { nav.top ul { display: none; } }
+
+  /* Hero */
+  .hero { padding: 120px 0 80px; }
+  .hero .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--ink-soft); margin-bottom: 28px;
+    padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--bg-card);
+  }
+  .hero .eyebrow .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: #2bb673;
+    box-shadow: 0 0 0 4px color-mix(in srgb, #2bb673 25%, transparent);
+  }
+  .hero h1 {
+    font-size: clamp(44px, 8vw, 112px);
+    margin: 0 0 28px;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--accent); font-weight: 400;
+  }
+  .hero .lede {
+    font-size: clamp(18px, 1.6vw, 22px);
+    max-width: 720px; color: var(--ink-soft); margin: 0 0 40px;
+  }
+  .hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px; font-size: 15px;
+    font-weight: 500; text-decoration: none; transition: transform .15s, background .2s;
+    border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { background: var(--bg-card); }
+  .btn .arrow { transition: transform .2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* Marquee strip */
+  .strip {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 22px 0; background: var(--bg-card);
+    overflow: hidden;
+  }
+  .strip-row {
+    display: flex; gap: 64px; align-items: center;
+    color: var(--ink-soft); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+  .strip-row span { display: inline-flex; align-items: center; gap: 10px; }
+  .strip-row .glyph { color: var(--accent); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Section heading */
+  section { padding: 100px 0; }
+  .section-head {
+    display: flex; align-items: end; justify-content: space-between;
+    gap: 24px; margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .section-head h2 { font-size: clamp(36px, 5vw, 60px); margin: 0; }
+  .section-head .meta { color: var(--ink-soft); font-size: 14px; max-width: 380px; }
+
+  /* Case study cards */
+  .case {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 520px;
+  }
+  @media (max-width: 900px) { .case { grid-template-columns: 1fr; } }
+  .case .text { padding: 56px; display: flex; flex-direction: column; justify-content: space-between; }
+  @media (max-width: 640px) { .case .text { padding: 32px; } }
+  .case .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+  .case .tag {
+    font-size: 12px; padding: 5px 12px; border-radius: 999px;
+    background: var(--bg); color: var(--ink-soft); border: 1px solid var(--line);
+  }
+  .case h3 { font-family: "Fraunces", serif; font-size: clamp(32px, 4vw, 48px); font-weight: 500; letter-spacing: -0.02em; line-height: 1; margin: 0 0 18px; }
+  .case .role { color: var(--ink-soft); font-size: 14px; margin-bottom: 24px; }
+  .case .desc { font-size: 16px; color: var(--ink); margin-bottom: 32px; }
+  .case .desc strong { font-weight: 600; }
+  .case .links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .case-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border-radius: 999px;
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    border: 1px solid var(--line); color: var(--ink);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .case-link:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .case-link.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .case-link.primary:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* Case visual sides */
+  .case .visual { position: relative; overflow: hidden; }
+  .case-visual-ect {
+    background: linear-gradient(135deg, #1a3a2c 0%, #0d2419 100%);
+    display: flex; align-items: center; justify-content: center; padding: 40px;
+  }
+  .case-visual-ect .laptop-wrap {
+    position: relative; width: 100%; max-width: 520px;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  }
+  .case-visual-ect img { width: 100%; display: block; }
+  .case-visual-mb {
+    background: radial-gradient(circle at 20% 30%, #2a1f4a 0%, #0a0617 60%, #050310 100%);
+    display: flex; align-items: center; justify-content: center; padding: 40px;
+    position: relative;
+  }
+  .case-visual-mb::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .case-visual-mb .device {
+    position: relative;
+    width: 100%; max-width: 520px;
+    background: #0e0a1f;
+    border: 1px solid #2a2350;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02) inset;
+  }
+  .case-visual-mb .device .titlebar {
+    height: 28px; background: #14102a; display: flex; align-items: center; padding: 0 12px; gap: 6px;
+    border-bottom: 1px solid #2a2350;
+  }
+  .case-visual-mb .device .titlebar .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .case-visual-mb .device .titlebar .dot.r { background: #ff5b5b; }
+  .case-visual-mb .device .titlebar .dot.y { background: #ffbe2e; }
+  .case-visual-mb .device .titlebar .dot.g { background: #2bca45; }
+  .case-visual-mb .device .canvas {
+    aspect-ratio: 16/10; background:
+      radial-gradient(circle at 70% 60%, rgba(255,91,31,0.35), transparent 40%),
+      radial-gradient(circle at 30% 30%, rgba(80,140,255,0.3), transparent 50%),
+      #0a0617;
+    position: relative; padding: 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .case-visual-mb .device .prompt {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: #e8e3ff; font-size: 12px; font-family: "Inter", sans-serif;
+    backdrop-filter: blur(10px);
+  }
+  .case-visual-mb .device .prompt .caret { display: inline-block; width: 8px; height: 14px; background: var(--accent); margin-left: 4px; vertical-align: middle; animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .case-visual-mb .device .toolbar {
+    display: flex; gap: 6px; margin-top: auto;
+  }
+  .case-visual-mb .device .tool {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: #c9c0ff; font-size: 13px;
+  }
+  .case-visual-mb .device .tool.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .about p { font-size: 18px; color: var(--ink); max-width: 540px; }
+  .about p + p { margin-top: 18px; }
+  .about-meta { font-size: 14px; }
+  .about-meta dl { display: grid; grid-template-columns: 140px 1fr; gap: 12px 24px; margin: 0; }
+  .about-meta dt { color: var(--ink-soft); }
+  .about-meta dd { margin: 0; font-weight: 500; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+  @media (max-width: 700px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px;
+  }
+  .skill-card h4 { margin: 0 0 12px; font-family: "Fraunces", serif; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
+  .skill-card ul { margin: 0; padding-left: 16px; color: var(--ink-soft); font-size: 14px; line-height: 1.8; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--bg); border-radius: 24px; padding: 80px 60px; text-align: center; }
+  @media (max-width: 640px) { .contact { padding: 60px 28px; } }
+  .contact h2 { font-size: clamp(40px, 6vw, 80px); margin: 0 0 20px; }
+  .contact p { color: color-mix(in srgb, var(--bg) 70%, transparent); margin: 0 0 36px; font-size: 18px; }
+  .contact .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .contact .btn-primary { background: var(--accent); color: white; }
+  .contact .btn-ghost { color: var(--bg); border-color: color-mix(in srgb, var(--bg) 30%, transparent); }
+  .contact .btn-ghost:hover { background: color-mix(in srgb, var(--bg) 10%, transparent); }
+
+  footer { padding: 40px 0; color: var(--ink-soft); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="container row">
+    <div class="brand">Anastasia Karunos<span class="dot">.</span></div>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mailto:ag10946n@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="pulse"></span> Open to product design roles · Seattle, WA</div>
+    <h1 class="display">UX/UI designer<br>shipping <em>useful</em> things.</h1>
+    <p class="lede">I'm Anastasia — a product manager and designer who turns ambiguous problems into clear, shippable outcomes. I work across research, IA, interaction, and prototyping to move products from 0→1.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#work">See selected work <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="mailto:ag10946n@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="strip-row">
+    <span><span class="glyph">●</span> Discovery & PRDs</span>
+    <span><span class="glyph">●</span> Figma prototyping</span>
+    <span><span class="glyph">●</span> Usability research</span>
+    <span><span class="glyph">●</span> Interaction design</span>
+    <span><span class="glyph">●</span> Design systems</span>
+    <span><span class="glyph">●</span> Accessibility</span>
+    <span><span class="glyph">●</span> Roadmapping</span>
+    <span><span class="glyph">●</span> 0→1 product</span>
+    <span><span class="glyph">●</span> Discovery & PRDs</span>
+    <span><span class="glyph">●</span> Figma prototyping</span>
+    <span><span class="glyph">●</span> Usability research</span>
+    <span><span class="glyph">●</span> Interaction design</span>
+    <span><span class="glyph">●</span> Design systems</span>
+    <span><span class="glyph">●</span> Accessibility</span>
+    <span><span class="glyph">●</span> Roadmapping</span>
+    <span><span class="glyph">●</span> 0→1 product</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="display">Selected work.</h2>
+      <p class="meta">Two recent projects. Click any "live demo" to walk through the working UI.</p>
+    </div>
+
+    <!-- Mirabend case -->
+    <div class="case">
+      <div class="text">
+        <div>
+          <div class="tag-row">
+            <span class="tag">Product Management Intern</span>
+            <span class="tag">2025</span>
+            <span class="tag">0→1</span>
+          </div>
+          <h3>Mirabend</h3>
+          <div class="role">AI-native game engine · MVP definition, asset pipeline UX</div>
+          <p class="desc">Defined the MVP for an AI-native game engine and built clickable Figma flows across <strong>asset creation → edit → export</strong>. Validated navigation, empty, and error states through usability passes; partnered with engineering to convert early-adopter feedback into scoped iterations and clear cutlines.</p>
+        </div>
+        <div class="links">
+          <a class="case-link primary" href="demos/mirabend/index.html">Live demo <span>↗</span></a>
+          <a class="case-link" href="demos/mirabend/index.html">Asset creation</a>
+          <a class="case-link" href="demos/mirabend/edit.html">Edit</a>
+          <a class="case-link" href="demos/mirabend/export.html">Export</a>
+        </div>
+      </div>
+      <div class="visual case-visual-mb">
+        <div class="device">
+          <div class="titlebar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          </div>
+          <div class="canvas">
+            <div class="prompt">create a low-poly forest with foggy morning light<span class="caret"></span></div>
+            <div class="toolbar">
+              <div class="tool active">✦</div>
+              <div class="tool">▣</div>
+              <div class="tool">◐</div>
+              <div class="tool">⬡</div>
+              <div class="tool">↗</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECT case -->
+    <div class="case">
+      <div class="visual case-visual-ect">
+        <div class="laptop-wrap">
+          <img src="public/images/easyclimbtech-laptop.jpg" alt="EasyClimbTech brand mockup" />
+        </div>
+      </div>
+      <div class="text">
+        <div>
+          <div class="tag-row">
+            <span class="tag">Product Manager & Design Co-op</span>
+            <span class="tag">2024–2025</span>
+            <span class="tag">B2C</span>
+          </div>
+          <h3>EasyClimbTech</h3>
+          <div class="role">AI mock-interview platform · Discovery, UX, design handoff</div>
+          <p class="desc">Led discovery and UX for AI-powered mock-interview experiences. Shipped high-fidelity Figma handoffs for <strong>candidate and coach flows</strong>, synthesized feedback from a 24,000-member Discord into roadmap themes, and ran usability sessions to improve completion rates.</p>
+        </div>
+        <div class="links">
+          <a class="case-link primary" href="demos/easyclimbtech/index.html">Live demo <span>↗</span></a>
+          <a class="case-link" href="demos/easyclimbtech/interview.html">Interview flow</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="display">About.</h2>
+      <p class="meta">A short version. The long one is on my <a href="https://linkedin.com/in/anastasiakarunos">LinkedIn</a>.</p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p>I partner with engineering and customers to convert interviews and market signals into scoped PRDs, clickable prototypes, and iterative releases. I'm comfortable driving 0→1 with rapid research and lightweight instrumentation.</p>
+        <p>Currently studying Computer Science at Harvard Extension School, with relevant coursework in User Engineering (UX), Prototyping, and Human-Centered Design.</p>
+      </div>
+      <div class="about-meta">
+        <dl>
+          <dt>Based in</dt><dd>Seattle, WA</dd>
+          <dt>Experience</dt><dd>Mirabend · EasyClimbTech</dd>
+          <dt>Education</dt><dd>Harvard Extension · Pace University</dd>
+          <dt>Stack</dt><dd>Figma, JS/React, Python, HTML/CSS</dd>
+          <dt>Tools</dt><dd>Linear, Notion, Jira, Git</dd>
+          <dt>Email</dt><dd><a href="mailto:ag10946n@gmail.com">ag10946n@gmail.com</a></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Product & research</h4>
+        <ul>
+          <li>Discovery & user interviews</li>
+          <li>PRDs & acceptance criteria</li>
+          <li>Roadmapping & cutlines</li>
+          <li>Usability testing</li>
+          <li>Metrics & instrumentation</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Design</h4>
+        <ul>
+          <li>Figma & prototyping</li>
+          <li>Interaction design</li>
+          <li>Information architecture</li>
+          <li>Design systems</li>
+          <li>Accessibility (basics)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Technical</h4>
+        <ul>
+          <li>JavaScript / React</li>
+          <li>Python</li>
+          <li>HTML / CSS</li>
+          <li>SQL (basic)</li>
+          <li>Git, Linear, Jira, Notion</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <h2 class="display">Let's build<br>something <em style="font-style: italic; color: var(--accent);">good</em>.</h2>
+      <p>Currently open to product design and PM roles.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:ag10946n@gmail.com">ag10946n@gmail.com</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/anastasiakarunos">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/ag10946n">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; width: 100%;">
+    <div>© 2026 Anastasia Karunos</div>
+    <div>Designed and coded with care.</div>
+  </div>
+</footer>
+
+</body>
+</html>

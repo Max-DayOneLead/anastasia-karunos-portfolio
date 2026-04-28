@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mirabend — Edit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+</head>
+<body>
+
+<div class="app">
+  <div class="titlebar">
+    <div class="left">
+      <div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="brand"><span class="glyph">◆</span> MIRABEND</div>
+      <span style="color: var(--ink-mute);">·</span>
+      <span style="color: var(--ink-soft);">forest_scene.mbnd</span>
+    </div>
+    <div class="right">
+      <span class="pill" style="background: rgba(43,182,115,0.15); color: #9ee5c1; border-color: rgba(43,182,115,0.3);">▣ Edit mode</span>
+      <span>⌘ Z</span>
+      <span style="color: var(--accent-3);">● Saved 3s ago</span>
+    </div>
+  </div>
+
+  <div class="rail">
+    <a class="icon" href="index.html" title="Asset creation">✦</a>
+    <a class="icon active" href="edit.html" title="Edit">▣</a>
+    <a class="icon" href="export.html" title="Export">↗</a>
+    <div class="spacer"></div>
+    <a class="icon" href="../../index.html" title="Back to portfolio">←</a>
+  </div>
+
+  <div class="left-panel">
+    <div class="header">
+      <h2>Scene</h2>
+      <button class="add">+</button>
+    </div>
+    <div class="tree">
+      <div class="tree-item"><span class="icon">▾</span> <span>forest_scene</span></div>
+      <div class="tree-item indent"><span class="icon">✦</span> <span>generation_prompt</span></div>
+      <div class="tree-item indent"><span class="icon">◐</span> <span>directional_light</span></div>
+      <div class="tree-item indent"><span class="icon">⬡</span> <span>terrain_mesh</span></div>
+      <div class="tree-item indent"><span class="icon">▣</span> <span>fog_volume</span></div>
+      <div class="tree-item indent selected"><span class="icon">⬢</span> <span>tree_cluster_01</span></div>
+      <div class="tree-item indent" style="padding-left: 40px;"><span class="icon">·</span> <span>oak_01</span></div>
+      <div class="tree-item indent" style="padding-left: 40px;"><span class="icon">·</span> <span>oak_02</span></div>
+      <div class="tree-item indent" style="padding-left: 40px;"><span class="icon">·</span> <span>pine_01</span></div>
+      <div class="tree-item indent"><span class="icon">◇</span> <span>player_camera</span></div>
+    </div>
+
+    <div class="header" style="margin-top: 8px;">
+      <h2>History</h2>
+    </div>
+    <div class="tree" style="font-size: 12px;">
+      <div class="tree-item"><span class="icon" style="color: var(--accent-3);">●</span> <span>Cluster: tree_cluster_01</span></div>
+      <div class="tree-item"><span class="icon">●</span> <span>Add fog_volume</span></div>
+      <div class="tree-item"><span class="icon">●</span> <span>Tweak directional_light</span></div>
+      <div class="tree-item"><span class="icon">●</span> <span>Generated forest_scene</span></div>
+    </div>
+  </div>
+
+  <div class="canvas">
+    <div class="canvas-grid"></div>
+    <div class="canvas-toolbar">
+      <button class="tool" title="Generate">✦</button>
+      <button class="tool active" title="Move">◇</button>
+      <button class="tool" title="Rotate">↻</button>
+      <button class="tool" title="Scale">⤢</button>
+      <button class="tool" title="Light">◐</button>
+    </div>
+
+    <!-- viewport mock -->
+    <div style="position: absolute; inset: 60px 16px 60px 16px; border-radius: 12px; overflow: hidden; background:
+      radial-gradient(ellipse at 50% 80%, rgba(43, 182, 115, 0.25), transparent 50%),
+      radial-gradient(ellipse at 30% 30%, rgba(255, 190, 46, 0.2), transparent 40%),
+      linear-gradient(180deg, #1a2540 0%, #0e1a30 50%, #0a1525 100%);
+      border: 1px solid var(--line);">
+
+      <!-- horizon -->
+      <div style="position: absolute; left: 0; right: 0; bottom: 30%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255, 190, 46, 0.4), transparent);"></div>
+
+      <!-- ground -->
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background:
+        linear-gradient(180deg, #1a3a2c 0%, #0d2419 100%);
+        clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0 100%);"></div>
+
+      <!-- low-poly trees -->
+      <svg style="position: absolute; inset: 0; width: 100%; height: 100%;" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+        <!-- back trees -->
+        <g opacity="0.7">
+          <polygon points="100,300 130,200 160,300" fill="#1a3a2c" />
+          <polygon points="120,310 145,230 175,310" fill="#214830" />
+          <polygon points="180,290 215,170 250,290" fill="#1a3a2c" />
+          <polygon points="600,295 630,210 660,295" fill="#1a3a2c" />
+          <polygon points="650,305 680,225 710,305" fill="#214830" />
+          <polygon points="720,300 750,215 780,300" fill="#1a3a2c" />
+        </g>
+        <!-- mid trees -->
+        <g>
+          <polygon points="60,360 110,210 160,360" fill="#2a5a3f" />
+          <polygon points="50,380 95,250 140,380" fill="#214830" />
+          <polygon points="280,360 330,180 380,360" fill="#2a5a3f" stroke="#ff5b1f" stroke-width="2" />
+          <polygon points="270,385 320,225 370,385" fill="#214830" stroke="#ff5b1f" stroke-width="2" />
+          <polygon points="540,355 590,200 640,355" fill="#2a5a3f" />
+          <polygon points="530,380 580,240 630,380" fill="#214830" />
+        </g>
+        <!-- selection box -->
+        <rect x="240" y="160" width="170" height="240" fill="none" stroke="#ff5b1f" stroke-width="1" stroke-dasharray="4 3" />
+        <circle cx="240" cy="160" r="4" fill="#ff5b1f" />
+        <circle cx="410" cy="160" r="4" fill="#ff5b1f" />
+        <circle cx="240" cy="400" r="4" fill="#ff5b1f" />
+        <circle cx="410" cy="400" r="4" fill="#ff5b1f" />
+        <!-- gizmo arrows -->
+        <g transform="translate(325, 280)">
+          <line x1="0" y1="0" x2="60" y2="0" stroke="#ff5b5b" stroke-width="2" />
+          <polygon points="60,-5 70,0 60,5" fill="#ff5b5b" />
+          <line x1="0" y1="0" x2="0" y2="-60" stroke="#2bca45" stroke-width="2" />
+          <polygon points="-5,-60 0,-70 5,-60" fill="#2bca45" />
+          <line x1="0" y1="0" x2="-30" y2="20" stroke="#508cff" stroke-width="2" />
+          <polygon points="-30,15 -38,22 -25,25" fill="#508cff" />
+        </g>
+      </svg>
+
+      <!-- floating label -->
+      <div style="position: absolute; top: 16px; left: 16px; background: rgba(16, 11, 34, 0.85); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 12px; backdrop-filter: blur(10px);">
+        <span style="color: var(--accent);">⬢</span> tree_cluster_01 <span style="color: var(--ink-mute);">· 3 instances</span>
+      </div>
+
+      <!-- ai suggestion popup -->
+      <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; max-width: 380px; background: rgba(16, 11, 34, 0.92); border: 1px solid rgba(255, 91, 31, 0.4); border-radius: 12px; padding: 14px 16px; backdrop-filter: blur(20px); display: flex; gap: 12px; align-items: start;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; flex-shrink: 0;">✦</div>
+        <div style="flex: 1;">
+          <div style="font-size: 12px; color: var(--ink-soft); margin-bottom: 4px;">Suggestion</div>
+          <div style="font-size: 13px; line-height: 1.5;">Scatter 12 more instances along the ridge to break up the silhouette?</div>
+          <div style="display: flex; gap: 6px; margin-top: 10px;">
+            <button class="btn-primary" style="padding: 6px 12px; font-size: 12px;">Apply</button>
+            <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;">Adjust</button>
+            <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;">Dismiss</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position: absolute; bottom: 14px; right: 16px; color: var(--ink-mute); font-size: 11px;">
+      G move · R rotate · S scale · ⌘D duplicate
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <div class="header">
+      <h2>Inspector</h2>
+      <div class="selected-name">tree_cluster_01</div>
+    </div>
+    <div class="section">
+      <h3>Transform</h3>
+      <div class="field"><label>Position</label>
+        <div class="vec"><input value="-2.4" /><input value="0.0" /><input value="3.1" /></div>
+      </div>
+      <div class="field"><label>Rotation</label>
+        <div class="vec"><input value="0" /><input value="34" /><input value="0" /></div>
+      </div>
+      <div class="field"><label>Scale</label>
+        <div class="vec"><input value="1.0" /><input value="1.0" /><input value="1.0" /></div>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Material</h3>
+      <div class="field"><label>Albedo</label>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <div style="width: 24px; height: 24px; border-radius: 6px; background: #2a5a3f; border: 1px solid var(--line);"></div>
+          <input value="#2A5A3F" />
+        </div>
+      </div>
+      <div class="field"><label>Roughness</label><input value="0.72" /></div>
+      <div class="field"><label>Metallic</label><input value="0.00" /></div>
+    </div>
+    <div class="section">
+      <h3>Cluster</h3>
+      <div class="field"><label>Density</label><input value="0.6" /></div>
+      <div class="field"><label>Variation</label><input value="0.4" /></div>
+      <div class="field"><label>Seed</label><input value="84291" /></div>
+    </div>
+    <div class="section">
+      <h3>AI refine</h3>
+      <textarea placeholder="describe a change..." style="width: 100%; min-height: 60px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px; color: var(--ink); font-family: inherit; font-size: 13px; resize: vertical;">make the trees more weathered and add fallen logs</textarea>
+      <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;">✦ Refine selection</button>
+    </div>
+  </div>
+
+  <div class="flow-bar" style="grid-column: 2 / -1;">
+    <a class="step" href="index.html"><span class="num">1</span> Create</a>
+    <span class="arrow">→</span>
+    <a class="step active" href="edit.html"><span class="num">2</span> Edit</a>
+    <span class="arrow">→</span>
+    <a class="step" href="export.html"><span class="num">3</span> Export</a>
+    <a class="back" href="../../index.html#work">← Back to portfolio</a>
+  </div>
+</div>
+
+</body>
+</html>

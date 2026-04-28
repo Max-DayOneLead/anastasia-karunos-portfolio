@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mirabend — Export</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+</head>
+<body>
+
+<div class="app">
+  <div class="titlebar">
+    <div class="left">
+      <div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="brand"><span class="glyph">◆</span> MIRABEND</div>
+      <span style="color: var(--ink-mute);">·</span>
+      <span style="color: var(--ink-soft);">forest_scene.mbnd</span>
+    </div>
+    <div class="right">
+      <span class="pill" style="background: rgba(255,190,46,0.15); color: #f5d57a; border-color: rgba(255,190,46,0.3);">↗ Export</span>
+      <span style="color: var(--accent-3);">● Saved</span>
+    </div>
+  </div>
+
+  <div class="rail">
+    <a class="icon" href="index.html" title="Asset creation">✦</a>
+    <a class="icon" href="edit.html" title="Edit">▣</a>
+    <a class="icon active" href="export.html" title="Export">↗</a>
+    <div class="spacer"></div>
+    <a class="icon" href="../../index.html" title="Back to portfolio">←</a>
+  </div>
+
+  <!-- left panel: targets -->
+  <div class="left-panel">
+    <div class="header">
+      <h2>Export targets</h2>
+      <button class="add">+</button>
+    </div>
+    <div class="tree">
+      <div class="tree-item selected"><span class="icon">◆</span> <span>Unity (URP)</span></div>
+      <div class="tree-item"><span class="icon">◇</span> <span>Unreal 5.4</span></div>
+      <div class="tree-item"><span class="icon">⬡</span> <span>Godot 4.3</span></div>
+      <div class="tree-item"><span class="icon">▣</span> <span>glTF 2.0</span></div>
+      <div class="tree-item"><span class="icon">▣</span> <span>USDZ</span></div>
+      <div class="tree-item"><span class="icon">▣</span> <span>FBX</span></div>
+    </div>
+    <div class="header" style="margin-top: 8px;">
+      <h2>Recent exports</h2>
+    </div>
+    <div class="tree" style="font-size: 12px;">
+      <div class="tree-item"><span class="icon" style="color: var(--accent-3);">●</span> <span>forest_scene.unitypackage</span></div>
+      <div class="tree-item"><span class="icon" style="color: var(--accent-3);">●</span> <span>forest_scene.glb</span></div>
+      <div class="tree-item"><span class="icon" style="color: var(--ink-mute);">●</span> <span>desert_canyon.fbx</span></div>
+    </div>
+  </div>
+
+  <!-- center: export preview/summary -->
+  <div class="canvas" style="background: var(--bg); padding: 32px; overflow-y: auto;">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <div style="font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-mute); margin-bottom: 8px;">Step 3 · Export</div>
+      <h1 style="font-size: 32px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.02em;">Export to Unity (URP)</h1>
+      <p style="color: var(--ink-soft); margin: 0 0 32px; font-size: 15px;">forest_scene.mbnd · last edited 2 min ago · 1 cluster, 3 lights, 12 instances</p>
+
+      <!-- preview -->
+      <div style="aspect-ratio: 16/9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(180deg, #1a2540 0%, #0e1a30 50%, #1a3a2c 100%); margin-bottom: 32px; position: relative;">
+        <svg style="position: absolute; inset: 0; width: 100%; height: 100%;" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+          <g opacity="0.6"><polygon points="100,290 130,200 160,290" fill="#1a3a2c" /><polygon points="600,295 630,210 660,295" fill="#1a3a2c" /><polygon points="720,300 750,215 780,300" fill="#1a3a2c" /></g>
+          <g><polygon points="60,360 110,210 160,360" fill="#2a5a3f" /><polygon points="280,360 330,180 380,360" fill="#2a5a3f" /><polygon points="540,355 590,200 640,355" fill="#2a5a3f" /></g>
+          <circle cx="650" cy="80" r="40" fill="#ffbe2e" opacity="0.5" />
+          <circle cx="650" cy="80" r="20" fill="#fff5d4" />
+        </svg>
+        <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.4); border-radius: 6px; padding: 4px 10px; font-size: 11px; backdrop-filter: blur(10px);">Preview</div>
+      </div>
+
+      <!-- summary -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px;">
+        <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
+          <div style="font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px;">Polys</div>
+          <div style="font-size: 22px; font-weight: 600;">7,420</div>
+          <div style="font-size: 12px; color: var(--accent-3);">↓ under budget</div>
+        </div>
+        <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
+          <div style="font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px;">Textures</div>
+          <div style="font-size: 22px; font-weight: 600;">8 / 14 MB</div>
+          <div style="font-size: 12px; color: var(--ink-soft);">1024² atlased</div>
+        </div>
+        <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
+          <div style="font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px;">Materials</div>
+          <div style="font-size: 22px; font-weight: 600;">4</div>
+          <div style="font-size: 12px; color: var(--ink-soft);">URP/Lit</div>
+        </div>
+        <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
+          <div style="font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px;">Bundle</div>
+          <div style="font-size: 22px; font-weight: 600;">12.4 MB</div>
+          <div style="font-size: 12px; color: var(--ink-soft);">.unitypackage</div>
+        </div>
+      </div>
+
+      <!-- compatibility checks -->
+      <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 32px;">
+        <h3 style="margin: 0 0 14px; font-size: 14px;">Compatibility checks</h3>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+          <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-3);">●</span> <span>All meshes within poly budget</span></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-3);">●</span> <span>Textures atlased to 1024²</span></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-3);">●</span> <span>URP shader graph compatible</span></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--warn);">●</span> <span style="color: var(--ink-soft);">fog_volume requires Unity 2022.3+ <a style="color: var(--accent); margin-left: 6px;">resolve →</a></span></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-3);">●</span> <span>Commercial license verified</span></div>
+        </div>
+      </div>
+
+      <!-- actions -->
+      <div style="display: flex; gap: 12px; justify-content: end; padding-bottom: 80px;">
+        <button class="btn-secondary">Save preset</button>
+        <button class="btn-secondary">Open in Unity</button>
+        <button class="btn-primary">↗ Export · 12.4 MB</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- right panel: settings -->
+  <div class="right-panel">
+    <div class="header">
+      <h2>Settings</h2>
+      <div class="selected-name">Unity (URP)</div>
+    </div>
+    <div class="section">
+      <h3>Format</h3>
+      <div class="field"><label>Target</label><select><option>Unity 2022.3 LTS+</option><option>Unity 6</option></select></div>
+      <div class="field"><label>Pipeline</label><select><option>URP</option><option>HDRP</option><option>Built-in</option></select></div>
+      <div class="field"><label>Type</label><select><option>.unitypackage</option><option>Loose files</option></select></div>
+    </div>
+    <div class="section">
+      <h3>Geometry</h3>
+      <div class="field"><label>LODs</label><select><option>Auto (3)</option><option>None</option></select></div>
+      <div class="field"><label>Compress</label><select><option>Mesh + textures</option><option>Textures only</option></select></div>
+    </div>
+    <div class="section">
+      <h3>Lighting</h3>
+      <div class="field"><label>Bake</label><select><option>Mixed</option><option>Realtime</option><option>Baked</option></select></div>
+      <div class="field"><label>GI</label><select><option>Lightmap</option><option>SH probes</option></select></div>
+    </div>
+    <div class="section">
+      <h3>Metadata</h3>
+      <div class="field"><label>License</label><input value="Commercial" /></div>
+      <div class="field"><label>Author</label><input value="Anastasia K." /></div>
+      <div class="field"><label>Tags</label><input value="forest, low-poly" /></div>
+    </div>
+  </div>
+
+  <div class="flow-bar" style="grid-column: 2 / -1;">
+    <a class="step" href="index.html"><span class="num">1</span> Create</a>
+    <span class="arrow">→</span>
+    <a class="step" href="edit.html"><span class="num">2</span> Edit</a>
+    <span class="arrow">→</span>
+    <a class="step active" href="export.html"><span class="num">3</span> Export</a>
+    <a class="back" href="../../index.html#work">← Back to portfolio</a>
+  </div>
+</div>
+
+</body>
+</html>

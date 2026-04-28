@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mirabend — AI-native game engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+</head>
+<body>
+
+<div class="app">
+  <!-- titlebar -->
+  <div class="titlebar">
+    <div class="left">
+      <div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="brand"><span class="glyph">◆</span> MIRABEND</div>
+      <span style="color: var(--ink-mute);">·</span>
+      <span style="color: var(--ink-soft);">forest_scene.mbnd</span>
+    </div>
+    <div class="right">
+      <span class="pill">✦ Asset creation</span>
+      <span>⌘ S</span>
+      <span style="color: var(--accent-3);">● Saved</span>
+    </div>
+  </div>
+
+  <!-- left rail -->
+  <div class="rail">
+    <a class="icon active" href="index.html" title="Asset creation">✦</a>
+    <a class="icon" href="edit.html" title="Edit">▣</a>
+    <a class="icon" href="export.html" title="Export">↗</a>
+    <div class="spacer"></div>
+    <a class="icon" href="../../index.html" title="Back to portfolio">←</a>
+  </div>
+
+  <!-- left panel: scene tree -->
+  <div class="left-panel">
+    <div class="header">
+      <h2>Scene</h2>
+      <button class="add">+</button>
+    </div>
+    <div class="tree">
+      <div class="tree-item"><span class="icon">▾</span> <span>forest_scene</span></div>
+      <div class="tree-item indent selected"><span class="icon">✦</span> <span>generation_prompt</span></div>
+      <div class="tree-item indent"><span class="icon">◐</span> <span>directional_light</span></div>
+      <div class="tree-item indent"><span class="icon">⬡</span> <span>terrain_mesh</span></div>
+      <div class="tree-item indent"><span class="icon">▣</span> <span>fog_volume</span></div>
+      <div class="tree-item indent"><span class="icon">⬢</span> <span>tree_cluster_01</span></div>
+      <div class="tree-item indent"><span class="icon">◇</span> <span>player_camera</span></div>
+    </div>
+
+    <div class="header" style="margin-top: 8px;">
+      <h2>Recent prompts</h2>
+    </div>
+    <div class="tree">
+      <div class="tree-item"><span class="icon">↺</span> <span>low-poly forest, foggy</span></div>
+      <div class="tree-item"><span class="icon">↺</span> <span>desert canyon, sunset</span></div>
+      <div class="tree-item"><span class="icon">↺</span> <span>arctic ice cave</span></div>
+    </div>
+  </div>
+
+  <!-- canvas -->
+  <div class="canvas">
+    <div class="canvas-grid"></div>
+    <div class="canvas-toolbar">
+      <button class="tool active" title="Generate">✦</button>
+      <button class="tool" title="Move">◇</button>
+      <button class="tool" title="Rotate">↻</button>
+      <button class="tool" title="Scale">⤢</button>
+      <button class="tool" title="Light">◐</button>
+    </div>
+
+    <!-- prompt overlay -->
+    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(640px, 90%);">
+      <div style="background: rgba(16, 11, 34, 0.85); border: 1px solid var(--line); border-radius: 18px; padding: 24px; backdrop-filter: blur(20px); box-shadow: 0 30px 80px rgba(0,0,0,0.4);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--ink-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .1em;">
+          <span style="color: var(--accent);">✦</span> Generate asset
+          <span style="margin-left: auto; color: var(--ink-mute);">⌘ + K</span>
+        </div>
+        <div style="font-size: 18px; font-weight: 500; line-height: 1.5; min-height: 60px;">
+          create a low-poly forest with foggy morning light<span id="caret" style="display: inline-block; width: 9px; height: 22px; background: var(--accent); margin-left: 4px; vertical-align: -3px; animation: blink 1s infinite;"></span>
+        </div>
+        <style>@keyframes blink { 50% { opacity: 0; } }</style>
+        <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+          <span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--line-soft); color: var(--ink-soft); border: 1px solid var(--line);">+ reference image</span>
+          <span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--line-soft); color: var(--ink-soft); border: 1px solid var(--line);">+ style guide</span>
+          <span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--line-soft); color: var(--ink-soft); border: 1px solid var(--line);">+ constraints</span>
+        </div>
+      </div>
+
+      <!-- preset buttons -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px;">
+        <button class="btn-secondary" style="display: block; padding: 14px; text-align: left;">
+          <div style="color: var(--ink-soft); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px;">Environment</div>
+          <div>Forest scene</div>
+        </button>
+        <button class="btn-secondary" style="display: block; padding: 14px; text-align: left;">
+          <div style="color: var(--ink-soft); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px;">Character</div>
+          <div>Stylized hero</div>
+        </button>
+        <button class="btn-secondary" style="display: block; padding: 14px; text-align: left;">
+          <div style="color: var(--ink-soft); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px;">Prop</div>
+          <div>Treasure chest</div>
+        </button>
+      </div>
+    </div>
+
+    <div style="position: absolute; bottom: 14px; right: 16px; color: var(--ink-mute); font-size: 11px;">
+      ⏎ generate · ⇧⏎ refine · ⎋ cancel
+    </div>
+  </div>
+
+  <!-- right panel: inspector -->
+  <div class="right-panel">
+    <div class="header">
+      <h2>Inspector</h2>
+      <div class="selected-name">generation_prompt</div>
+    </div>
+    <div class="section">
+      <h3>Generation</h3>
+      <div class="field"><label>Model</label><select><option>mirabend-v2</option><option>mirabend-fast</option></select></div>
+      <div class="field"><label>Steps</label><input type="text" value="32" /></div>
+      <div class="field"><label>Seed</label><input type="text" value="auto" /></div>
+      <div class="field"><label>Style</label><select><option>low-poly</option><option>realistic</option><option>painterly</option></select></div>
+    </div>
+    <div class="section">
+      <h3>Constraints</h3>
+      <div class="field"><label>Polys</label><input type="text" value="≤ 8000" /></div>
+      <div class="field"><label>Textures</label><input type="text" value="1024²" /></div>
+      <div class="field"><label>License</label><select><option>Commercial</option><option>Open</option></select></div>
+    </div>
+    <div class="section">
+      <button class="btn-primary" style="width: 100%; justify-content: center;">✦ Generate</button>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+        <button class="btn-secondary" style="justify-content: center;">Refine</button>
+        <button class="btn-secondary" style="justify-content: center;">Variants</button>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Recent</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <div style="aspect-ratio: 1; border-radius: 8px; background: linear-gradient(135deg, #2a4a35, #1a3a2c); border: 1px solid var(--line);"></div>
+        <div style="aspect-ratio: 1; border-radius: 8px; background: linear-gradient(135deg, #4a3a2a, #6e3a18); border: 1px solid var(--line);"></div>
+        <div style="aspect-ratio: 1; border-radius: 8px; background: linear-gradient(135deg, #2a3a4a, #1a2540); border: 1px solid var(--line);"></div>
+        <div style="aspect-ratio: 1; border-radius: 8px; background: linear-gradient(135deg, #4a2a3a, #6e1840); border: 1px solid var(--line);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- flow bar -->
+  <div class="flow-bar" style="grid-column: 2 / -1;">
+    <a class="step active" href="index.html"><span class="num">1</span> Create</a>
+    <span class="arrow">→</span>
+    <a class="step" href="edit.html"><span class="num">2</span> Edit</a>
+    <span class="arrow">→</span>
+    <a class="step" href="export.html"><span class="num">3</span> Export</a>
+    <a class="back" href="../../index.html#work">← Back to portfolio</a>
+  </div>
+</div>
+
+</body>
+</html>

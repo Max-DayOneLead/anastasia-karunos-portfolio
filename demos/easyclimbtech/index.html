@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EasyClimbTech — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+</head>
+<body>
+
+<div class="app">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">E</div>
+      <div>EasyClimbTech</div>
+      <span style="color: var(--ink-mute); margin-left: 4px;">/ Candidate</span>
+    </div>
+    <div class="right">
+      <span class="pill">● Pro</span>
+      <span style="color: var(--ink-soft);">Streak · 7 days 🔥</span>
+      <div class="avatar">A</div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <h2>Practice</h2>
+    <a class="active" href="index.html"><span class="icon">◇</span> Dashboard</a>
+    <a href="interview.html"><span class="icon">▶</span> Mock interview</a>
+    <a href="#"><span class="icon">▤</span> Question bank</a>
+    <a href="#"><span class="icon">▦</span> Past sessions</a>
+    <h2>Coaching</h2>
+    <a href="#"><span class="icon">◐</span> Feedback</a>
+    <a href="#"><span class="icon">◍</span> Coach review</a>
+    <a href="#"><span class="icon">▸</span> Roadmap</a>
+    <h2>Account</h2>
+    <a href="#"><span class="icon">⚙</span> Settings</a>
+    <a href="../../index.html" style="margin-top: auto;"><span class="icon">←</span> Back to portfolio</a>
+  </div>
+
+  <div class="main">
+    <div class="page-head">
+      <div>
+        <h1>Welcome back, Anastasia</h1>
+        <p>You have 1 scheduled session and 3 unfinished drills.</p>
+      </div>
+      <a class="btn-primary" href="interview.html">▶ Start mock interview</a>
+    </div>
+
+    <!-- stats -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="label">Sessions completed</div>
+        <div class="value">12</div>
+        <div class="delta">↑ 4 this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Avg. score</div>
+        <div class="value">7.4</div>
+        <div class="delta">↑ 0.6 vs last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Completion rate</div>
+        <div class="value">86%</div>
+        <div class="delta">↑ 11pts</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Coach reviews</div>
+        <div class="value">3</div>
+        <div class="delta">2 unread</div>
+      </div>
+    </div>
+
+    <!-- next session -->
+    <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, #1a3a2c, #0d2419); color: white; border-color: transparent;">
+      <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 280px;">
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,0.6); margin-bottom: 8px;">Up next · in 24 minutes</div>
+          <h2 style="margin: 0 0 6px; font-size: 24px;">System Design — Backend Engineer (Senior)</h2>
+          <div style="color: rgba(255,255,255,0.7); font-size: 14px;">45 min · 3 questions · with AI coach "Mira"</div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a class="btn-secondary" style="background: transparent; color: white; border-color: rgba(255,255,255,0.3);" href="#">Reschedule</a>
+          <a class="btn-primary" style="background: var(--accent);" href="interview.html">Start now →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- two columns -->
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px;">
+      <!-- recommended drills -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+          <h2 style="margin: 0; font-size: 18px;">Recommended drills</h2>
+          <a href="#" style="font-size: 13px; color: var(--green);">View all →</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="interview.html" style="display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; transition: border-color .15s;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--line)'">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-soft); color: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 600;">▶</div>
+            <div>
+              <div style="font-weight: 500;">Behavioral · STAR framework</div>
+              <div style="color: var(--ink-soft); font-size: 13px;">15 min · 5 prompts · because you scored 6.2 last time</div>
+            </div>
+            <div style="font-size: 13px; color: var(--ink-soft);">→</div>
+          </a>
+
+          <a href="interview.html" style="display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: #fff3e8; color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 600;">⌘</div>
+            <div>
+              <div style="font-weight: 500;">Algorithms · graphs warm-up</div>
+              <div style="color: var(--ink-soft); font-size: 13px;">25 min · 3 problems · streak: 4</div>
+            </div>
+            <div style="font-size: 13px; color: var(--ink-soft);">→</div>
+          </a>
+
+          <a href="interview.html" style="display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: #e8f0ff; color: #2554a8; display: flex; align-items: center; justify-content: center; font-weight: 600;">◇</div>
+            <div>
+              <div style="font-weight: 500;">System design · URL shortener</div>
+              <div style="color: var(--ink-soft); font-size: 13px;">35 min · whiteboard · suggested by coach</div>
+            </div>
+            <div style="font-size: 13px; color: var(--ink-soft);">→</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- progress chart -->
+      <div class="card">
+        <h2 style="margin: 0 0 18px; font-size: 18px;">Score trend</h2>
+        <svg viewBox="0 0 320 140" style="width: 100%; height: auto;">
+          <defs>
+            <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#2a8c50" stop-opacity="0.4" />
+              <stop offset="100%" stop-color="#2a8c50" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0,100 L40,90 L80,95 L120,75 L160,80 L200,60 L240,55 L280,40 L320,35 L320,140 L0,140 Z" fill="url(#grad)" />
+          <path d="M0,100 L40,90 L80,95 L120,75 L160,80 L200,60 L240,55 L280,40 L320,35" stroke="#2a8c50" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          <circle cx="320" cy="35" r="5" fill="#2a8c50" />
+          <circle cx="320" cy="35" r="9" fill="#2a8c50" opacity="0.3" />
+        </svg>
+        <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-mute); margin-top: 6px;">
+          <span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Now</span>
+        </div>
+        <div style="margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 13px;">
+          <div><div style="color: var(--ink-soft); font-size: 12px;">Avg</div><div style="font-weight: 600;">7.4</div></div>
+          <div><div style="color: var(--ink-soft); font-size: 12px;">Best</div><div style="font-weight: 600;">9.1</div></div>
+          <div><div style="color: var(--ink-soft); font-size: 12px;">Sessions</div><div style="font-weight: 600;">12</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
