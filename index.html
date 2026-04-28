@@ -302,24 +302,187 @@
   }
   .case-visual-dol .crm .lead .tier.hot { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
 
-  /* About */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
-  .about p { font-size: 18px; color: var(--ink); max-width: 540px; }
-  .about p + p { margin-top: 18px; }
-  .about-meta { font-size: 14px; }
-  .about-meta dl { display: grid; grid-template-columns: 140px 1fr; gap: 12px 24px; margin: 0; }
-  .about-meta dt { color: var(--ink-soft); }
-  .about-meta dd { margin: 0; font-weight: 500; }
-
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
-  @media (max-width: 700px) { .skills-grid { grid-template-columns: 1fr; } }
-  .skill-card {
-    background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 24px;
+  /* About — editorial */
+  .about { position: relative; }
+  .about::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(20, 17, 15, 0.05) 1px, transparent 0);
+    background-size: 18px 18px;
+    pointer-events: none;
+    mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 calc(100% - 120px), transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 calc(100% - 120px), transparent 100%);
   }
-  .skill-card h4 { margin: 0 0 12px; font-family: "Fraunces", serif; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
-  .skill-card ul { margin: 0; padding-left: 16px; color: var(--ink-soft); font-size: 14px; line-height: 1.8; }
+  .about > .container { position: relative; }
+
+  .about-rule {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--ink-soft); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .about-rule .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--ink-soft), transparent); opacity: .35; }
+  .about-rule .num { font-family: "Fraunces", serif; font-size: 14px; letter-spacing: 0; font-style: italic; color: var(--accent); text-transform: none; }
+
+  /* Editorial top: 3-column asymmetric */
+  .about-edit {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 1000px) { .about-edit { grid-template-columns: 1fr; gap: 40px; } }
+
+  .about-edit .col-left {
+    display: flex; flex-direction: column; gap: 28px;
+    position: relative;
+  }
+  .about-edit .vlabel {
+    font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-soft);
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    position: absolute; left: -8px; top: 0;
+    height: fit-content;
+  }
+  @media (max-width: 1000px) { .about-edit .vlabel { display: none; } }
+
+  .quote-card {
+    background: var(--ink); color: var(--bg);
+    padding: 32px 28px; border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-card::before {
+    content: "“"; position: absolute; top: -40px; right: 8px;
+    font-family: "Fraunces", serif; font-size: 220px; line-height: 1;
+    color: var(--accent); opacity: .6;
+  }
+  .quote-card .qtext {
+    font-family: "Fraunces", serif; font-size: 24px; line-height: 1.25; letter-spacing: -0.01em;
+    font-style: italic; font-weight: 400; position: relative;
+  }
+  .quote-card .qtext em { color: var(--accent); font-style: italic; }
+  .quote-card .qsig {
+    margin-top: 20px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--bg) 60%, transparent);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .quote-card .qsig::before {
+    content: ""; width: 24px; height: 1px; background: color-mix(in srgb, var(--bg) 40%, transparent);
+  }
+
+  .now-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 22px 24px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .now-card .now-h { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-soft); display: flex; align-items: center; gap: 8px; }
+  .now-card .now-h .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent); }
+  .now-card .now-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; font-size: 14px; }
+  .now-card .now-row dt { color: var(--ink-soft); font-size: 12px; padding-top: 2px; }
+  .now-card .now-row dd { margin: 0; font-weight: 500; }
+  .now-card .now-row dd em { font-family: "Fraunces", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+
+  /* Center: long-form editorial body with dropcap */
+  .about-body { max-width: 580px; }
+  .about-body .lede {
+    font-family: "Fraunces", serif; font-size: clamp(24px, 2.4vw, 32px); font-weight: 400; letter-spacing: -0.01em;
+    line-height: 1.25; margin: 0 0 32px;
+  }
+  .about-body .lede em { font-style: italic; color: var(--accent); }
+  .about-body p {
+    font-size: 17px; line-height: 1.7; color: var(--ink); margin: 0 0 20px;
+  }
+  .about-body p:first-of-type::first-letter {
+    font-family: "Fraunces", serif;
+    font-size: 76px; font-weight: 500;
+    float: left; line-height: 0.85; padding: 8px 12px 0 0;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+
+  /* Right: vitals card */
+  .vitals { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 96px; }
+  .vital-card {
+    border: 1px solid var(--line); border-radius: 18px; background: var(--bg-card);
+    padding: 22px 24px;
+  }
+  .vital-card .vh { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 14px; }
+  .vital-stat .num {
+    font-family: "Fraunces", serif; font-size: 64px; font-weight: 500;
+    line-height: 0.95; letter-spacing: -0.04em; color: var(--ink);
+    display: flex; align-items: baseline; gap: 4px;
+  }
+  .vital-stat .num em { font-style: italic; font-size: 36px; color: var(--accent); font-weight: 400; }
+  .vital-stat .label { font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
+  .vital-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .vital-stat-row .vital-stat .num { font-size: 44px; }
+
+  .vital-list { display: flex; flex-direction: column; gap: 10px; }
+  .vital-list-item {
+    display: grid; grid-template-columns: 28px 1fr;
+    gap: 10px; align-items: baseline;
+    padding: 10px 0; border-bottom: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .vital-list-item:last-child { border-bottom: 0; padding-bottom: 0; }
+  .vital-list-item .k { font-family: "Fraunces", serif; font-style: italic; font-size: 13px; color: var(--accent); }
+  .vital-list-item .v { color: var(--ink); font-weight: 500; }
+  .vital-list-item .v small { display: block; font-weight: 400; color: var(--ink-soft); font-size: 12px; margin-top: 2px; }
+
+  /* Operating manual: skills as editorial numbered rows */
+  .om {
+    margin-top: 96px;
+    border-top: 1px solid var(--line);
+    padding-top: 56px;
+  }
+  .om-head {
+    display: flex; align-items: end; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .om-head h3 {
+    font-family: "Fraunces", serif; font-size: clamp(28px, 3.6vw, 44px); font-weight: 500;
+    letter-spacing: -0.02em; margin: 0; line-height: 1;
+  }
+  .om-head h3 em { font-style: italic; color: var(--accent); }
+  .om-head .om-meta { color: var(--ink-soft); font-size: 13px; max-width: 320px; text-align: right; }
+  @media (max-width: 600px) { .om-head .om-meta { text-align: left; } }
+
+  .om-row {
+    display: grid;
+    grid-template-columns: 80px 1.4fr 2.2fr;
+    gap: 32px; align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    transition: background .25s;
+  }
+  .om-row:hover { background: color-mix(in srgb, var(--bg-card) 50%, transparent); }
+  .om-row:last-child { border-bottom: 0; }
+  @media (max-width: 800px) { .om-row { grid-template-columns: 60px 1fr; } .om-row .om-list { grid-column: 1 / -1; padding-left: 60px; } }
+  @media (max-width: 500px) { .om-row .om-list { padding-left: 0; } }
+
+  .om-row .om-num {
+    font-family: "Fraunces", serif; font-style: italic;
+    font-size: 64px; font-weight: 400; color: var(--accent);
+    line-height: 0.85; letter-spacing: -0.04em;
+  }
+  .om-row .om-title h4 {
+    font-family: "Fraunces", serif; font-size: 28px; font-weight: 500;
+    letter-spacing: -0.02em; margin: 0 0 8px;
+  }
+  .om-row .om-title p {
+    margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.55;
+  }
+  .om-list {
+    display: flex; flex-wrap: wrap; gap: 6px; align-content: start;
+  }
+  .om-list .pill {
+    font-size: 13px; padding: 6px 12px; border-radius: 999px;
+    background: var(--bg-card); border: 1px solid var(--line); color: var(--ink);
+    transition: background .15s, border-color .15s, color .15s;
+    cursor: default;
+  }
+  .om-list .pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .om-list .pill.solid { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .om-list .pill.solid:hover { background: var(--accent); border-color: var(--accent); }
 
   /* Education */
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -562,60 +725,139 @@
 
 <section id="about" class="about">
   <div class="container">
-    <div class="section-head">
-      <h2 class="display">About.</h2>
-      <p class="meta">A short version. The long one is on my <a href="https://linkedin.com/in/anastasiakarunos">LinkedIn</a>.</p>
+
+    <div class="about-rule">
+      <span>About</span>
+      <span class="num">— ii</span>
+      <span class="line"></span>
+      <span>Designer at work</span>
     </div>
 
-    <div class="about-grid">
-      <div>
-        <p>I partner with engineering and customers to convert interviews and market signals into scoped PRDs, clickable prototypes, and iterative releases. I'm comfortable driving 0→1 with rapid research and lightweight instrumentation.</p>
-        <p>Currently studying Computer Science at Harvard Extension School, with relevant coursework in User Engineering (UX), Prototyping, and Human-Centered Design.</p>
+    <div class="about-edit">
+      <!-- LEFT: pull-quote + status -->
+      <div class="col-left">
+        <span class="vlabel">— Field notes</span>
+
+        <div class="quote-card">
+          <div class="qtext">Ambiguous problems, made <em>shippable</em>.</div>
+          <div class="qsig">A.K. · Operating principle</div>
+        </div>
+
+        <div class="now-card">
+          <div class="now-h"><span class="dot"></span> Currently</div>
+          <div class="now-row">
+            <dt>Reading</dt><dd>“Inspired” — Marty Cagan</dd>
+            <dt>Building</dt><dd>Asset pipelines for <em>AI-native tools</em></dd>
+            <dt>Listening</dt><dd>Lex Fridman & Lo-fi study sets</dd>
+            <dt>Wanting</dt><dd>An <em>IC product role</em> on a small team</dd>
+          </div>
+        </div>
       </div>
-      <div class="about-meta">
-        <dl>
-          <dt>Based in</dt><dd>Seattle, WA</dd>
-          <dt>Experience</dt><dd>Mirabend · EasyClimbTech · DayOneLead</dd>
-          <dt>Education</dt><dd>Harvard Extension · Pace University</dd>
-          <dt>Stack</dt><dd>Figma, JS/React, Python, HTML/CSS</dd>
-          <dt>Tools</dt><dd>Linear, Notion, Jira, Git</dd>
-          <dt>Email</dt><dd><a href="mailto:ag10946n@gmail.com">ag10946n@gmail.com</a></dd>
-        </dl>
+
+      <!-- CENTER: editorial body -->
+      <div class="about-body">
+        <p class="lede">I'm a UX/UI designer and product manager who turns <em>ambiguous problems</em> into clear, shippable outcomes — one usable screen, scoped PRD, and iterated release at a time.</p>
+
+        <p>My favorite kind of work lives at the seam between research and shipping: customer interviews on Monday, a clickable prototype by Wednesday, a usability pass on Friday, a release the following sprint. I keep a tight loop between what I'm hearing from users and what's actually being built.</p>
+
+        <p>Across <strong>Mirabend</strong>, <strong>EasyClimbTech</strong>, and <strong>DayOneLead</strong>, I've shipped 0→1 product surfaces in domains as different as game-engine asset pipelines, AI mock interviews, and B2B sales feeds. The thread that runs through all of it: clear navigation, honest empty/error states, and a relentless edit on every screen until nothing on it is decorative.</p>
+
+        <p>Outside of design tools I'm comfortable enough in JavaScript, React, and Python to read engineering's PRs, prototype in code when Figma isn't enough, and write the spec in language the team can actually build from.</p>
+      </div>
+
+      <!-- RIGHT: vitals -->
+      <aside class="vitals">
+        <div class="vital-card">
+          <div class="vh">— By the numbers</div>
+          <div class="vital-stat">
+            <div class="num">3<em>×</em></div>
+            <div class="label">0→1 product launches across PM and design roles.</div>
+          </div>
+          <div class="vital-stat-row" style="margin-top: 24px;">
+            <div class="vital-stat">
+              <div class="num">24k</div>
+              <div class="label">Discord community synthesized into roadmap themes.</div>
+            </div>
+            <div class="vital-stat">
+              <div class="num">100%</div>
+              <div class="label">Of demos, design-led — not deck-led.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vital-card">
+          <div class="vh">— Vitals</div>
+          <div class="vital-list">
+            <div class="vital-list-item"><span class="k">i</span><span class="v">Seattle, WA <small>open to remote · ±3 PT</small></span></div>
+            <div class="vital-list-item"><span class="k">ii</span><span class="v">3 companies, 3 verticals <small>games · ed-tech · sales</small></span></div>
+            <div class="vital-list-item"><span class="k">iii</span><span class="v">Studying CS at Harvard <small>extension · UX, prototyping, HCD</small></span></div>
+            <div class="vital-list-item"><span class="k">iv</span><span class="v"><a href="mailto:ag10946n@gmail.com" style="text-decoration: none; border-bottom: 1px solid var(--accent); color: var(--ink);">ag10946n@gmail.com</a></span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Operating manual -->
+    <div class="om">
+      <div class="om-head">
+        <h3>Operating <em>manual.</em></h3>
+        <p class="om-meta">What I bring to a team — listed plainly, no novel-length bullet points.</p>
+      </div>
+
+      <div class="om-row">
+        <div class="om-num">i.</div>
+        <div class="om-title">
+          <h4>Product &amp; research</h4>
+          <p>Convert interviews, custom requests, and market signals into scoped roadmaps and clear acceptance criteria.</p>
+        </div>
+        <div class="om-list">
+          <span class="pill solid">Discovery</span>
+          <span class="pill solid">PRDs</span>
+          <span class="pill">User interviews</span>
+          <span class="pill">Roadmapping</span>
+          <span class="pill">Usability testing</span>
+          <span class="pill">Cutlines &amp; tradeoffs</span>
+          <span class="pill">Metrics &amp; instrumentation</span>
+          <span class="pill">Release notes</span>
+        </div>
+      </div>
+
+      <div class="om-row">
+        <div class="om-num">ii.</div>
+        <div class="om-title">
+          <h4>Design &amp; interaction</h4>
+          <p>Clickable Figma flows, design-system thinking, and an honest love of empty and error states.</p>
+        </div>
+        <div class="om-list">
+          <span class="pill solid">Figma</span>
+          <span class="pill solid">Interaction design</span>
+          <span class="pill">Information architecture</span>
+          <span class="pill">Prototyping</span>
+          <span class="pill">Design systems</span>
+          <span class="pill">Accessibility basics</span>
+          <span class="pill">In-product copy</span>
+          <span class="pill">Visual design</span>
+        </div>
+      </div>
+
+      <div class="om-row">
+        <div class="om-num">iii.</div>
+        <div class="om-title">
+          <h4>Technical fluency</h4>
+          <p>Comfortable enough in code to read PRs, prototype outside of Figma, and write specs engineers can actually build from.</p>
+        </div>
+        <div class="om-list">
+          <span class="pill solid">JavaScript / React</span>
+          <span class="pill solid">Python</span>
+          <span class="pill">HTML / CSS</span>
+          <span class="pill">SQL (basic)</span>
+          <span class="pill">Git</span>
+          <span class="pill">Linear · Jira</span>
+          <span class="pill">Notion</span>
+        </div>
       </div>
     </div>
 
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h4>Product & research</h4>
-        <ul>
-          <li>Discovery & user interviews</li>
-          <li>PRDs & acceptance criteria</li>
-          <li>Roadmapping & cutlines</li>
-          <li>Usability testing</li>
-          <li>Metrics & instrumentation</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Design</h4>
-        <ul>
-          <li>Figma & prototyping</li>
-          <li>Interaction design</li>
-          <li>Information architecture</li>
-          <li>Design systems</li>
-          <li>Accessibility (basics)</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Technical</h4>
-        <ul>
-          <li>JavaScript / React</li>
-          <li>Python</li>
-          <li>HTML / CSS</li>
-          <li>SQL (basic)</li>
-          <li>Git, Linear, Jira, Notion</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
