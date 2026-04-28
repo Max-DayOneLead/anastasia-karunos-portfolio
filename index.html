@@ -222,6 +222,86 @@
   }
   .case-visual-mb .device .tool.active { background: var(--accent); border-color: var(--accent); color: white; }
 
+  /* DayOneLead visual */
+  .case-visual-dol {
+    background: linear-gradient(135deg, #0b1220 0%, #112038 100%);
+    display: flex; align-items: center; justify-content: center; padding: 40px;
+    position: relative; overflow: hidden;
+  }
+  .case-visual-dol::before {
+    content: ""; position: absolute; inset: -40px;
+    background: radial-gradient(circle at 80% 30%, rgba(34, 211, 197, 0.18), transparent 60%);
+  }
+  .case-visual-dol .crm {
+    position: relative;
+    width: 100%; max-width: 540px;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    color: #11140e;
+    font-size: 11px;
+  }
+  .case-visual-dol .crm .crm-top {
+    height: 42px; background: #0b1220;
+    display: flex; align-items: center; padding: 0 14px; gap: 10px;
+    color: #fff;
+  }
+  .case-visual-dol .crm .crm-top .crm-logo {
+    width: 22px; height: 22px; border-radius: 6px;
+    border: 2px solid #1E7BFF;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .case-visual-dol .crm .crm-top .crm-logo::after {
+    content: ""; width: 8px; height: 8px; border-radius: 50%; background: #1E7BFF;
+  }
+  .case-visual-dol .crm .crm-top .crm-name { font-weight: 700; letter-spacing: .04em; font-size: 12px; }
+  .case-visual-dol .crm .crm-top .crm-pill {
+    margin-left: auto; background: rgba(34,211,197,0.15); color: #1E7BFF;
+    border: 1px solid rgba(34,211,197,0.3);
+    border-radius: 999px; padding: 3px 10px; font-size: 10px; font-weight: 600;
+  }
+  .case-visual-dol .crm .filters {
+    display: flex; gap: 6px; padding: 10px 14px;
+    border-bottom: 1px solid #eef0f3; background: #fafbfc;
+    overflow-x: auto;
+  }
+  .case-visual-dol .crm .filters .chip {
+    background: #fff; border: 1px solid #e3e7ec; border-radius: 999px;
+    padding: 3px 10px; font-size: 10px; color: #475569;
+    white-space: nowrap;
+  }
+  .case-visual-dol .crm .filters .chip.active { background: #0b1220; color: #fff; border-color: #0b1220; }
+  .case-visual-dol .crm .feed { padding: 10px 14px 14px; }
+  .case-visual-dol .crm .feed .feed-h {
+    font-size: 10px; text-transform: uppercase; letter-spacing: .1em;
+    color: #64748b; margin-bottom: 8px; display: flex; justify-content: space-between;
+  }
+  .case-visual-dol .crm .feed .feed-h .live {
+    display: inline-flex; align-items: center; gap: 4px; color: #16a34a; font-weight: 600;
+  }
+  .case-visual-dol .crm .feed .feed-h .live::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%; background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  }
+  .case-visual-dol .crm .lead {
+    display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center;
+    padding: 9px 10px; border: 1px solid #eef0f3; border-radius: 8px; margin-bottom: 6px;
+  }
+  .case-visual-dol .crm .lead .av {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, #1E7BFF, #0b6e8c); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 10px;
+  }
+  .case-visual-dol .crm .lead .name { font-weight: 600; font-size: 11.5px; }
+  .case-visual-dol .crm .lead .meta { color: #64748b; font-size: 10px; margin-top: 1px; }
+  .case-visual-dol .crm .lead .tier {
+    background: #ecfdf5; color: #047857; font-size: 9px; font-weight: 600;
+    padding: 2px 7px; border-radius: 999px; border: 1px solid #a7f3d0;
+  }
+  .case-visual-dol .crm .lead .tier.hot { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+
   /* About */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
@@ -240,6 +320,49 @@
   }
   .skill-card h4 { margin: 0 0 12px; font-family: "Fraunces", serif; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
   .skill-card ul { margin: 0; padding-left: 16px; color: var(--ink-soft); font-size: 14px; line-height: 1.8; }
+
+  /* Education */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 800px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 28px;
+    display: grid; grid-template-columns: 72px 1fr; gap: 20px; align-items: start;
+  }
+  .edu-card .logo {
+    width: 72px; height: 72px; border-radius: 14px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg);
+  }
+  .edu-card .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .edu-card .school { font-family: "Fraunces", serif; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .edu-card .program { color: var(--ink); font-size: 14px; margin: 0 0 8px; }
+  .edu-card .dates { color: var(--ink-soft); font-size: 13px; margin: 0 0 14px; }
+  .edu-card .meta { color: var(--ink-soft); font-size: 13px; line-height: 1.5; margin: 0; }
+  .edu-card .meta strong { color: var(--ink); font-weight: 500; }
+
+  /* Experience logo strip */
+  .exp-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 32px;
+  }
+  @media (max-width: 700px) { .exp-strip { grid-template-columns: 1fr; } }
+  .exp-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 20px;
+    display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center;
+  }
+  .exp-card .lg {
+    width: 44px; height: 44px; border-radius: 10px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg);
+  }
+  .exp-card .lg img { width: 100%; height: 100%; object-fit: contain; }
+  .exp-card .lg.dol { background: #0b1220; padding: 6px; }
+  .exp-card .lg.ect { background: #1a3a2c; padding: 4px; }
+  .exp-card .lg.mb { background: #0a0617; padding: 6px; }
+  .exp-card .role-title { font-weight: 600; font-size: 14px; }
+  .exp-card .role-meta { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
 
   /* Contact */
   .contact { background: var(--ink); color: var(--bg); border-radius: 24px; padding: 80px 60px; text-align: center; }
@@ -347,6 +470,69 @@
       </div>
     </div>
 
+    <!-- DayOneLead case -->
+    <div class="case">
+      <div class="visual case-visual-dol">
+        <div class="crm">
+          <div class="crm-top">
+            <img src="public/logos/dayonelead.png" alt="DayOneLead" style="height: 18px; width: auto;" />
+            <span class="crm-pill">● 47 new today</span>
+          </div>
+          <div class="filters">
+            <span class="chip active">All tiers</span>
+            <span class="chip">Tier 1 · Hot</span>
+            <span class="chip">Tier 2</span>
+            <span class="chip">Florida</span>
+            <span class="chip">Texas</span>
+            <span class="chip">Restaurants</span>
+            <span class="chip">Contractors</span>
+          </div>
+          <div class="feed">
+            <div class="feed-h"><span>Today's leads · Tampa Bay</span><span class="live">Live</span></div>
+            <div class="lead">
+              <div class="av">SP</div>
+              <div>
+                <div class="name">Sunbeam Party Rentals</div>
+                <div class="meta">Owner: Marcus Reilly · Event services · registered 2h ago</div>
+              </div>
+              <span class="tier hot">Hot</span>
+            </div>
+            <div class="lead">
+              <div class="av">TB</div>
+              <div>
+                <div class="name">Tampa Bay Floor Coatings</div>
+                <div class="meta">Owner: Dana Ngo · Contractor · registered 4h ago</div>
+              </div>
+              <span class="tier">Tier 2</span>
+            </div>
+            <div class="lead">
+              <div class="av">CR</div>
+              <div>
+                <div class="name">Coastline Roofing LLC</div>
+                <div class="meta">Owner: J. Patel · Contractor · registered 6h ago</div>
+              </div>
+              <span class="tier">Tier 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text">
+        <div>
+          <div class="tag-row">
+            <span class="tag">UX/UI Design</span>
+            <span class="tag">2024</span>
+            <span class="tag">B2B SaaS</span>
+          </div>
+          <h3>DayOneLead</h3>
+          <div class="role">Daily lead-feed for sales teams · Onboarding, dashboard, lead detail flows</div>
+          <p class="desc">Designed the core UX for a B2B sales platform that delivers <strong>verified leads on newly-registered businesses</strong> the day they open. Owned the lead-feed dashboard, filterable tier/state/category views, lead detail cards, and CSV export flow — translating "stop chasing cold leads, get there first" into clear, fast-to-scan screens for sales reps.</p>
+        </div>
+        <div class="links">
+          <a class="case-link primary" href="https://dayonelead.com" target="_blank" rel="noopener">Visit live site ↗</a>
+        </div>
+      </div>
+    </div>
+
     <!-- ECT case -->
     <div class="case">
       <div class="visual case-visual-ect">
@@ -389,7 +575,7 @@
       <div class="about-meta">
         <dl>
           <dt>Based in</dt><dd>Seattle, WA</dd>
-          <dt>Experience</dt><dd>Mirabend · EasyClimbTech</dd>
+          <dt>Experience</dt><dd>Mirabend · EasyClimbTech · DayOneLead</dd>
           <dt>Education</dt><dd>Harvard Extension · Pace University</dd>
           <dt>Stack</dt><dd>Figma, JS/React, Python, HTML/CSS</dd>
           <dt>Tools</dt><dd>Linear, Notion, Jira, Git</dd>
@@ -428,6 +614,37 @@
           <li>SQL (basic)</li>
           <li>Git, Linear, Jira, Notion</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="display">Education.</h2>
+      <p class="meta">Studying CS while shipping product. Coursework grounded in user engineering, prototyping, and human-centered design.</p>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="logo"><img src="public/logos/harvard.svg" alt="Harvard University" /></div>
+        <div>
+          <h3 class="school">Harvard University</h3>
+          <p class="program">Bachelor of Liberal Arts, Computer Science · Extension School</p>
+          <p class="dates">2023 – 2027 (expected)</p>
+          <p class="meta">Relevant coursework: <strong>User Engineering (UX)</strong>, <strong>Prototyping</strong>, <strong>Human-Centered Design</strong>.</p>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="logo"><img src="public/logos/pace.svg" alt="Pace University" /></div>
+        <div>
+          <h3 class="school">Pace University</h3>
+          <p class="program">B.S. Computer Science · Seidenberg School of CSIS</p>
+          <p class="dates">2016 – 2020</p>
+          <p class="meta">Coursework: <strong>Data Structures &amp; Algorithms</strong>, <strong>Operating Systems</strong>, Linux &amp; C.</p>
+        </div>
       </div>
     </div>
   </div>

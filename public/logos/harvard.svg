@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <clipPath id="shield">
+      <path d="M100 16 C 60 16, 28 30, 28 30 L 28 100 C 28 150, 100 184, 100 184 C 100 184, 172 150, 172 100 L 172 30 C 172 30, 140 16, 100 16 Z" />
+    </clipPath>
+  </defs>
+  <path d="M100 16 C 60 16, 28 30, 28 30 L 28 100 C 28 150, 100 184, 100 184 C 100 184, 172 150, 172 100 L 172 30 C 172 30, 140 16, 100 16 Z" fill="#A41E22"/>
+  <g clip-path="url(#shield)" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="34" text-anchor="middle">
+    <text x="62" y="80">VE</text>
+    <text x="138" y="80">RI</text>
+    <text x="100" y="140">TAS</text>
+  </g>
+  <path d="M100 16 C 60 16, 28 30, 28 30 L 28 100 C 28 150, 100 184, 100 184 C 100 184, 172 150, 172 100 L 172 30 C 172 30, 140 16, 100 16 Z" fill="none" stroke="#fff" stroke-width="3"/>
+</svg>
