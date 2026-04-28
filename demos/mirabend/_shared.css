@@ -7,7 +7,7 @@
   --ink: #f0ecff;
   --ink-soft: #9489c9;
   --ink-mute: #5d5388;
-  --accent: #ff5b1f;
+  --accent: #7c3aed;
   --accent-2: #8b5cf6;
   --accent-3: #2bb673;
   --warn: #ffbe2e;
@@ -92,7 +92,7 @@ a { color: inherit; }
 }
 .tree-item.indent { padding-left: 24px; }
 .tree-item:hover { background: var(--line-soft); }
-.tree-item.selected { background: rgba(255, 91, 31, 0.15); color: #ffd5c2; }
+.tree-item.selected { background: rgba(124, 58, 237, 0.18); color: #e0d4f7; }
 .tree-item .icon { color: var(--ink-soft); font-size: 12px; }
 .tree-item.selected .icon { color: var(--accent); }
 
@@ -168,7 +168,7 @@ a { color: inherit; }
   padding: 10px 18px; border-radius: 8px; font-weight: 500; font-size: 13px;
   display: inline-flex; align-items: center; gap: 8px;
 }
-.btn-primary:hover { background: #ff7440; }
+.btn-primary:hover { background: #9061f9; }
 .btn-secondary {
   background: var(--line-soft); color: var(--ink);
   padding: 10px 18px; border-radius: 8px; font-weight: 500; font-size: 13px;
@@ -187,7 +187,7 @@ a { color: inherit; }
   padding: 6px 12px; border-radius: 6px;
   color: var(--ink-soft); text-decoration: none;
 }
-.flow-bar .step.active { background: rgba(255,91,31,0.15); color: #ffd5c2; }
+.flow-bar .step.active { background: rgba(124, 58, 237, 0.18); color: #e0d4f7; }
 .flow-bar .step .num {
   width: 18px; height: 18px; border-radius: 50%;
   background: var(--line-soft); color: var(--ink-soft);
